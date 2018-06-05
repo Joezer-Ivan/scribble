@@ -1,0 +1,96 @@
+<html>
+<head>
+    <title>
+        Scribble
+    </title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'notes/styles.css' %}">
+    <!-- using font-awesome for the icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <div class="topbar">
+            <div class="title">
+                <h1 class="bold">Scribble</h1><h3> | A note taking app</h3>
+            </div>
+            <div>
+                <span class="autosave-wrapper">
+                    Auto Save
+                    <i id="autosave-switch" class="fas fa-2x icon"></i>
+                </span>
+                <span id="new-note">
+                    <i class="fas fa-plus-square fa-2x icon"></i>
+                </span>
+            </div>
+        </div>
+        <div class="alert success-alert">
+            
+        </div>
+        <div class="alert failure-alert">
+            
+        </div>
+    </header>
+    <div class="notes-container">
+        
+    </div>
+
+    <div id="note-template" style="display: none">
+        <div class="note">
+            <div class="note-title bold">
+                <span id="note-title-id"></span>
+                <span id="note-enlarge" class="icon"><i class="fas fa-expand-arrows-alt"></i></span>
+            </div>
+            <hr>
+            <div class="note-body">
+                
+            </div>
+            <div class="note-update-time">
+                
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay">
+        <div id="enlarged-note">
+            <div class="note-title bold">
+                <div id="enlarged-title"></div>
+                <div class="note-actions">
+                    <span id="note-delete" class="icon"><i class="fas fa-trash-alt"></i></span>
+                    <span id="note-revisions" class="icon"><i class="fas fa-history"></i></span>
+                    <span id="note-edit" class="icon"><i class="fas fa-edit"></i></span>
+                    <span id="note-close" class="icon"><i class="fas fa-times"></i></span>
+                </div>
+            </div>
+            <hr>
+            <div class="enlarged-view">
+                <div id="enlarged-body">
+                </div>
+                <div id="revisions">
+                    <ul>
+                    </ul>
+                </div>
+            </div>  
+            <div class="note-update-time">
+            </div>
+        </div>
+
+        <div id="enlarged-note-edit">
+            <div class="note-title bold">
+                <input type="text" name="title" id="title-edit" placeholder="Title goes here..."/>
+                <input type="text" id="edited-note-id" hidden="true">
+                <div class="note-actions">
+                    <span id="note-discard" class="icon"><i class="fas fa-times"></i></span>
+                    <span id="note-save" class="icon"><i class="fas fa-check"></i></span>
+                </div>
+            </div>
+            <hr>
+            <div class="enlarged-view">
+                <textarea id="body-edit" form="note-edit-form" placeholder="Note body goes here..."></textarea>
+            </div>  
+        </div>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="{% static 'notes/scribble.js' %}"></script>
+</html>
